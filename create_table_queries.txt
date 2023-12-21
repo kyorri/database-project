@@ -1,0 +1,82 @@
+CREATE TABLE Owner (
+    OwnerID INT PRIMARY KEY,
+    FirstName VARCHAR(32),
+    LastName VARCHAR(32),
+    PhoneNumber VARCHAR(10),
+    MembershipStartDate DATE
+);
+
+CREATE TABLE Car (
+    CarID INT,
+    VIN VARCHAR(17),
+    Make VARCHAR(32),
+    Model VARCHAR(32),
+    Color VARCHAR(16),
+    Year INT,
+    OwnerID INT,
+    PRIMARY KEY (CarID, VIN),
+    FOREIGN KEY (OwnerID) REFERENCES Owner(OwnerID)
+);
+
+CREATE TABLE Event (
+    EventID INT PRIMARY KEY,
+    Title VARCHAR(32),
+    EventStartDate DATE,
+    EventEndDate DATE
+);
+
+CREATE TABLE Visitor (
+    VisitorID INT PRIMARY KEY,
+    FirstName VARCHAR(32),
+    LastName VARCHAR(32),
+    AmountDonated DECIMAL(10, 2)
+);
+
+CREATE TABLE Event_Visitor_Relationship (
+    EventVisitorID INT PRIMARY KEY,
+    VisitorID INT,
+    EventID INT,
+    FOREIGN KEY (VisitorID) REFERENCES Visitor(VisitorID),
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
+
+CREATE TABLE Manager (
+    ManagerID INT PRIMARY KEY,
+    FirstName VARCHAR(32),
+    LastName VARCHAR(32),
+    Experience INT
+);
+
+CREATE TABLE Event_Manager_Relationship (
+    EventManagerID INT PRIMARY KEY,
+    ManagerID INT,
+    EventID INT,
+    FOREIGN KEY (ManagerID) REFERENCES Manager(ManagerID),
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
+
+CREATE TABLE Exhibition (
+    ExhibitionID INT PRIMARY KEY,
+    Theme VARCHAR(64),
+    Location VARCHAR(32),
+    EventID INT,
+    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+);
+
+CREATE TABLE Car_Exhibition_Relationship (
+    CarExhibitionID INT PRIMARY KEY,
+    CarID INT,
+    VIN VARCHAR(17),
+    ExhibitionID INT,
+    FOREIGN KEY (CarID, VIN) REFERENCES Car(CarID, VIN),
+    FOREIGN KEY (ExhibitionID) REFERENCES Exhibition(ExhibitionID)
+);
+
+CREATE TABLE Guide (
+    GuideID INT PRIMARY KEY,
+    FirstName VARCHAR(32),
+    LastName VARCHAR(32),
+    PreferredMake VARCHAR(32),
+    ExhibitionID INT,
+    FOREIGN KEY (ExhibitionID) REFERENCES Exhibition(ExhibitionID)
+);
