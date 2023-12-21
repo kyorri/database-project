@@ -1,0 +1,72 @@
+INSERT INTO Owner (OwnerID, FirstName, LastName, PhoneNumber, MembershipStartDate)
+VALUES (1, 'Ion', 'Pop', '0722123456', '2023-01-01'),
+       (2, 'Alexandru', 'Ionescu', '0722987654', '2023-02-01'),
+       (3, 'Vasile', 'Georgescu', '0722765432', '2023-03-01'),
+       (4, 'Ana', 'Popa', '0722345678', '2023-04-01'),
+       (5, 'Mihai', 'Dumitru', '0722898765', '2023-05-01');
+
+INSERT INTO Car (CarID, VIN, Make, Model, Color, Year, OwnerID)
+VALUES (1, '1HGCM82633A123456', 'Porsche', '959', 'Herbol White', 1986, 1),
+	   (2, '1HGCM82633A123457', 'Lamborghini', 'Miura', 'Bleu Miura', 1966, 2),
+       (3, '1HGCM82633A123458', 'Mercedes-Benz', '300SL', 'Silver', 1953, 3),
+       (4, '1HGCM82633A123459', 'Aston Martin', 'DB4 GT', 'Lunar White', 1958, 4),
+       (5, '1HGCM82633A123460', 'Jaguar', 'XK120', 'Steel Black', 1948, 5),
+	   (6, '1HGCM82633A123461', 'Mercedes-Benz', 'Velo', 'Black', 1894, 1);
+
+INSERT INTO Event (EventID, Title, EventStartDate, EventEndDate)
+VALUES (1, 'Masini renumite', '2023-06-01', '2023-06-30'),
+       (2, 'Parada masinilor germane', '2023-07-01', '2023-07-31'),
+       (3, 'Concurs de masini sport', '2023-08-01', '2023-08-31'),
+       (4, 'Festivalul Otto', '2023-09-01', '2023-09-30'),
+       (5, 'Saptamana masinilor japoneze', '2023-10-01', '2023-10-08');
+
+INSERT INTO Visitor (VisitorID, FirstName, LastName, AmountDonated)
+VALUES (1, 'Andrei', 'Stoica', 100.00),
+       (2, 'Felix', 'Dumitru', 32.00),
+       (3, 'Vasile', 'Vasile', 89.00),
+       (4, 'Marian', 'Dumitrescu', 132.00),
+       (5, 'George', 'Marinescu', 75.00);
+
+INSERT INTO Event_Visitor_Relationship (EventVisitorID, VisitorID, EventID)
+VALUES (1, 1, 1),
+       (2, 2, 2),
+       (3, 3, 3),
+       (4, 4, 4),
+       (5, 5, 5);
+
+INSERT INTO Manager (ManagerID, FirstName, LastName, Experience)
+VALUES (1, 'Ana', 'Radu', 3),
+       (2, 'Ionel', 'Ionescu', 2),
+       (3, 'Laura', 'Gheorghe', 10),
+       (4, 'Daniel', 'Popescu', 5),
+       (5, 'Stefan', 'Mihai', 8);
+
+INSERT INTO Event_Manager_Relationship (EventManagerID, ManagerID, EventID)
+VALUES (1, 1, 1),
+       (2, 2, 2),
+       (3, 3, 3),
+       (4, 4, 4),
+       (5, 5, 5);
+
+INSERT INTO Exhibition (ExhibitionID, Theme, Location, EventID)
+VALUES (1, 'Porsche', 'Sala nr. 1', 1),
+       (2, 'Coupe', 'Sala nr. 3', 2),
+       (3, 'Secol 20', 'Sala nr. 2', 3),
+       (4, 'Contemporan', 'Promenada nr. 1', 4),
+       (5, 'Sport', 'Parcarea nr. 3', 5);
+
+INSERT INTO Car_Exhibition_Relationship (CarExhibitionID, CarID, VIN, ExhibitionID)
+VALUES (1, 1, '1HGCM82633A123456', 1),
+       (2, 2, '1HGCM82633A123457', 2),
+       (3, 3, '1HGCM82633A123458', 3),
+       (4, 4, '1HGCM82633A123459', 4),
+       (5, 5, '1HGCM82633A123460', 5),
+	   (6, 6, '1HGCM82633A123461', 2);
+	   
+
+INSERT INTO Guide (GuideID, FirstName, LastName, PreferredMake, ExhibitionID)
+VALUES (1, 'Daniel', 'Petrescu', 'Renault', 1),
+       (2, 'Andreea', 'Matei', 'Mercedes-Benz', 2),
+       (3, 'Cosmin', 'Pop', 'Ford', 3),
+       (4, 'Elena', 'Stan', 'Porsche', 4),
+       (5, 'Gabriel', 'Dragomir', 'BMW', 5);
