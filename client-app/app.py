@@ -201,7 +201,7 @@ def print_all_data(connection):
 
 
 def search_by_make_or_model(connection):
-    print('You selected option 7 - search for a car by make or model')
+    print('You selected option 6 - search for a car by make or model')
     cursor = connection.cursor()
 
     cursor.execute("""
@@ -302,6 +302,6 @@ def main():
             os.system('pause')
             os.system('cls')
         
-        
+
 if __name__ == '__main__':
     main()

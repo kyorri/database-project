@@ -1,5 +1,4 @@
-[2023-12-22 20:14:17.455684]
+[2023-12-22 20:19:09.738297]
 $> Application started!
 $> Configuration data for the PostgreSQL server was fetched successfully!
 $> The application successfully connected to the PostgreSQL server!
-$> Application is closing!
